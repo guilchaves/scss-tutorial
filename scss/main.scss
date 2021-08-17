@@ -1,0 +1,64 @@
+@import './resets';
+@import './variables';
+
+//functions should be use to compute and return values
+@function weight($weigth-name) {
+  @return map-get($font-weights, $weigth-name);
+}
+
+//mixins should define styles
+@mixin flexCenter($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin theme($light-theme: true) {
+  @if $light-theme {
+    background: lighten($primary-color, 100%);
+    color: darken($text-color, 100%);
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $mobile) {
+    @content;
+  }
+}
+
+body {
+  background: $primary-color;
+  color: $text-color;
+}
+
+.main {
+  @include flexCenter(row);
+  width: 80%;
+  margin: 0 auto;
+
+  #{&}__paragraph1 {
+    font-weight: weigth(regular);
+
+    &:hover {
+      cursor: pointer;
+      color: pink;
+    }
+  }
+
+  #{&}__paragraph2 {
+    @extend .main__paragraph1;
+
+    &:hover {
+      color: $accent-color;
+    }
+  }
+
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+.light {
+  @include theme($light-theme: false);
+}
