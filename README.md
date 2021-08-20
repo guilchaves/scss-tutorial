@@ -20,4 +20,4 @@ Introdução ao desenvolvimento frontend utilizando _SASS/SCSS_. Aprender a util
 ☑ - Mixins<br>
 ☑ - Extend<br>
 ☑ - Math Operations<br>
-☐ - Projeto final<br>
+☐ - [Projeto final](https://github.com/guilchaves/scss-tutorial-project)<br>
